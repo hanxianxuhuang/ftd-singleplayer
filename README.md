@@ -25,5 +25,6 @@ EXIT
 ```
 
 ## Usage
-1. ``` chmod +x setup.bash && ./setup.bash```
-2. Visit IP_ADDRESS:8000 in browser (use "ip a" to determine IP_ADDRESS)
+1. cd into the directory
+2. ``` chmod +x setup.bash && ./setup.bash```
+3. Visit IP_ADDRESS:8000 in browser (use "ip a" to determine IP_ADDRESS)
