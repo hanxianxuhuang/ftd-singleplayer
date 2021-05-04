@@ -29,7 +29,13 @@ GRANT ALL PRIVILEGES ON DATABASE webdb TO webdbuser;
 EXIT
 ```
 
+### Setting up and starting the server
+```
+# cd into the directory
+chmod +x setup.bash
+./setup.bash
+```
+
 ## Usage
-1. cd into the directory
-2. ``` chmod +x setup.bash && ./setup.bash```
-3. Visit IP_ADDRESS:8000 in browser (use "ip a" to determine IP_ADDRESS)
+- ```nodejs ftd.js``` if the server has not started
+- Visit IP_ADDRESS:8000 in browser (use "ip a" to determine IP_ADDRESS)
