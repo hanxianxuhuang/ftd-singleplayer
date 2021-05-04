@@ -1,5 +1,10 @@
 # ftd-singleplayer
-A singleplayer shooting game using JavaScript, jQuery, HTML, CSS, PostgreSQL, Restful API, Node.js, Express.js, Ajax and Middleware
+A singleplayer shooting game 
+
+## [Multiplayer Version](https://github.com/hanxianxuhuang/ftd-multiplayer)
+
+## Tools
+JavaScript, jQuery, HTML, CSS, PostgreSQL, Restful API, Node.js, Express.js, Ajax and Middleware
 
 ## Setup
 
