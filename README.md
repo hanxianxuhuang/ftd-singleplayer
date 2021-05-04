@@ -13,9 +13,7 @@ JavaScript, jQuery, HTML, CSS, PostgreSQL, Restful API, Node.js, Express.js, Aja
 
 ### Installing required packages
 ```
-sudo apt install nodejs 
-sudo apt install npm 
-sudo apt install postgresql
+sudo apt install nodejs npm postgresql
 ```
 
 ### Setting up PostgreSQL
@@ -32,8 +30,7 @@ EXIT
 ### Setting up and starting the server
 ```
 # cd into the directory
-chmod +x setup.bash
-./setup.bash
+chmod +x setup.bash && ./setup.bash
 ```
 
 ## Usage
