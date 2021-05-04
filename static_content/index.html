@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<script src="jquery-3.5.1.min.js"></script>
+		<script language="javascript" src="model.js" > </script>
+		<script language="javascript" src="controller.js" > </script>
+		<style>
+			.ui_nav { display:none; }
+			#ui_login { display:block; }
+			#ui_register { display:none; }
+			#ui_play { display:none; }
+			#ui_instructions { display:none; }
+			#ui_stats { display:none; }
+			#ui_profile { display:none; }
+			h1 {
+				color:deeppink;
+				font-variant: small-caps;
+			}
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			ol {
+				list-style-type: upper-roman;
+			}
+			nav {
+				overflow: hidden;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+			}
+			
+			li{
+				margin: 10px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+			li.ui_nav {
+				display: inline-block;
+				color: black;
+				background-color: lightgray;
+				text-decoration: none;
+				margin: 0;
+				border: 2px solid white;
+				width: 16%;
+				font-size: large;
+				font-weight: bold;
+				padding-top: 1em;
+				padding-bottom: 1em;
+			}
+			li.ui_nav:hover {
+				color:lightgray;
+				background-color: black;
+				border: 2px solid;
+			}
+			.stats {
+				display:inline-block; 
+				vertical-align: top;
+				border: 4px double;
+				width: 14%;
+			}
+			body {
+				margin-top: 5em;
+				font-family: 'Trebuchet MS', sans-serif;
+				text-align: center;
+				background-color:lightgrey;
+				color:black;
+				font-weight: bolder;
+			}
+			.stats {
+				background: lightgrey;
+			}
+			.button {
+				cursor: pointer;
+				color:white;
+				background-color:grey;
+				border: none;
+				padding: 8px 16px;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+		</style>
+		<title>f0rt9it32d</title>
+	</head>
+
+	<header class="ui_nav">
+		<nav>
+			<ul>
+				<li class="ui_nav" id="play">Play</li>
+				<li class="ui_nav" id="instructions">Instructions</li>
+				<li class="ui_nav" id="stats">Stats</li>
+				<li class="ui_nav" id="profile">Profile</li>
+				<li class="ui_nav" id="logout">Logout</li> 
+			</ul>
+		</nav>
+	</header>
+
+	<body>
+
+		<div id="ui_notification" style="color:red; font-size: larger; font-weight: bolder;">
+			
+		</div>
+
+		<div id="ui_login">
+			<div>
+				<h1>
+					f0rt9it32d Login
+				</h1>
+			</div>
+
+			<div style="border: 2px black dotted; margin-left: 20%; margin-right: 20%; font-size: larger;">
+				<form onsubmit="return false">
+					<ul>
+						<li> 
+							<label for="username"> Username: </label> 
+							<input type="text" id="username" placeholder="User Name" maxlength="20" required/>
+						</li> 
+						<li> 
+							<label for="password"> Password: </label>  
+							<input type="password" id="password" placeholder="Password" minlength="3" required/>
+						</li> 
+						<li> 
+							<input type="submit" class="button" id="loginSubmit" value="Login" />
+						</li>
+						<li>  
+							<input type="submit" class="button" id="toRegister" value="Register A New Account" formnovalidate/>
+						</li> 
+					</ul>
+				</form>
+			</div>
+
+			<br/>
+		</div>
+		
+		<div id="ui_register">
+			<div>
+				<h1>
+					f0rt9it32d Register
+				</h1>
+			</div>
+			<div style="border: 2px black dotted; margin-left: 20%; margin-right: 20%; font-size: larger;">
+				<form onsubmit="return false">
+					<ul>
+						<li> 
+							<label for="reg_username"> Username: </label> 
+							<input type="text" id="reg_username" placeholder="User Name" maxlength="20" required/>
+						</li>
+						
+						<li> 
+							<label for="reg_password"> Password: </label> 
+							<input type="password" id="reg_password" placeholder="Password" minlength="3" required/> 
+						</li>
+						
+						<li> 
+							<label for="reg_password_again"> Re-enter Password: </label> 
+							<input type="password" id="reg_password_again" placeholder="Password Again" minlength="3" required/> 
+						</li>
+					
+						<li> 
+							<label for="reg_email"> Enter your email:</label> 
+							<input type="email" id="reg_email" maxlength="256" required/> 
+						</li>
+						
+						<li> 
+							<label for="reg_phone">Enter your phone number:</label> 
+							<input type="tel" id="reg_phone" title="***-***-****" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="***-***-****" required/> 
+						</li>
+
+						<li> 
+							<label for="reg_birthday"> Birthday: </label> <input type="date" id="reg_birthday" required/> 
+						</li>
+
+						<li> 
+							<label for="reg_level"> Choose your game difficulty: </label> 
+							<select id="reg_level"> 
+									<option value="easy">Easy</option>
+									<option value="medium">Medium</option>
+									<option value="hard">Hard</option>
+							</select> 
+						</li>
+
+						<li>  
+							<input type="checkbox" id="reg_privacy" value="true" required/>
+							<label for="reg_privacy"> By registering you agree to our privacy policy (You must check this in order to continue) </label>
+						</li>
+						<li>
+							<input type="submit" class="button" id="registerSubmit" value="Register" />
+						</li>
+						<li>
+							<input type="submit" class="button" id="toLogin" value="Go Back To Login" formnovalidate/>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+
+		<div id="ui_play">
+			<div>
+				<center>
+					<canvas id="stage" width="900" height="600" style="border:1px solid black; background-color:azure;"> </canvas>
+				</center>
+			</div>
+		</div>
+
+		<div id="ui_instructions" style="border: 2px black dotted; margin-left: 10%; margin-right: 10%; font-size: larger;">
+			<h1>
+				f0rt9it32d
+			</h1>
+			<div style="color:rgb(128, 0, 117)">
+				<h2>
+					Objects
+				</h2>
+				<ol>
+					<li>Purple Square: Obstacle</li>
+					<li>Yellow Square: Box</li>
+					<li>Blue Square: Player</li>
+					<li>Red Square: Enemy</li>
+					<li>Green Text: Health</li>
+				</ol>
+			</div>
+
+			<br/>
+
+			<div style="color:darkcyan">
+				<h2>
+					Operations
+				</h2>
+				<ol>
+					<li>Restart with <i>t</i>, Pause with <i>p</i>, Resumn with either <i>r</i> or <i>wasd</i></li>
+					<li>Move with <i>wasd</i></li>
+					<li>Boxes restore bullets and health, Move next to them and press <i>e</i></li>
+					<li>Aim with your mouse</li>
+					<li>Mouse click fires</li>
+				</ol>
+			</div>
+
+			<br/>
+
+			<div style="color: rgb(160, 88, 0);">
+				<h2>
+					Features
+				</h2>
+				<ol>
+					<li>No friendly fire</li>
+					<li>The speed of bullets is affected by the location of the mouse (further-->faster && closer-->slower)</li>
+					<li>The damage of bullets is affected by how many obstacles are around (1 obstacle-->&times;2 && 2 obstacles-->&times;3 && 3 obstacles-->&times;4)</li>
+				</ol>
+			</div>
+		</div>
+
+		<div id="ui_stats">
+			<div>
+				<div class="stats">
+					<h3>Scores For Level Easy </h3>
+					<ol class="easy_scores">
+						
+					</ol>
+				</div>
+
+				<div class="stats">
+					<h3> Scores For Level Medium </h3>
+					<ol class="medium_scores">
+
+					</ol>
+				</div>
+
+				<div class="stats">
+					<h3> Scores For Level Hard </h3>
+					<ol class="hard_scores">
+
+					</ol>
+				</div>
+
+				<div class="stats">
+					<h3>Remaining Enemies For Level Easy </h3>
+					<ol class="easy_numbers_of_enemies">
+						
+					</ol>
+				</div>
+
+				<div class="stats">
+					<h3> Remaining Enemies For Level Medium </h3>
+					<ol class="medium_numbers_of_enemies">
+
+					</ol>
+				</div>
+
+				<div class="stats">
+					<h3> Remaining Enemies For Level Hard </h3>
+					<ol class="hard_numbers_of_enemies">
+
+					</ol>
+				</div>
+			</div>
+		</div>
+
+		<div id="ui_profile">
+			<div style="border: 2px black dotted; margin-left: 20%; margin-right: 20%; font-size: larger;">
+				<form onsubmit="return false">
+					<ul>
+						<li> 
+							<label for="profile_username"> Username: </label> 
+							<input type="text" id="profile_username" maxlength="20" readonly/>
+						</li>
+						
+						<li> 
+							<label for="profile_password"> Password: </label> 
+							<input type="password" id="profile_password" placeholder="Password" /> 
+						</li>
+						
+						<li> 
+							<label for="profile_password_again"> Re-enter Password: </label> 
+							<input type="password" id="profile_password_again" placeholder="Password Again" /> 
+						</li>
+					
+						<li> 
+							<label for="profile_email"> Enter your email:</label> 
+							<input type="email" id="profile_email" maxlength="256" required/> 
+						</li>
+						
+						<li> 
+							<label for="profile_phone">Enter your phone number:</label> 
+							<input type="tel" id="profile_phone" title="***-***-****" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="***-***-****" required/> 
+						</li>
+
+						<li> 
+							<label for="profile_birthday"> Birthday: </label> 
+							<input type="date" id="profile_birthday" required/> 
+						</li>
+
+						<li> 
+							<label for="profile_level"> Choose your game difficulty: </label> 
+							<select id="profile_level"> 
+									<option value="easy">Easy</option>
+									<option value="medium">Medium</option>
+									<option value="hard">Hard</option>
+							</select> 
+							<br/>
+							(press t to restart the game in order to play the latest game difficulty)
+						</li>
+
+						<li>  
+							<input type="checkbox" id="profile_privacy" value="true" required/>
+							<label for="profile_privacy"> By registering you agree to our privacy policy (You must check this in order to continue) </label>
+						</li>
+						<li>
+							<input type="submit" class="button" id="profileSubmit" value="Save" />
+						</li>
+						<li>
+							<input type="submit" class="button" id="profileDelete" value="Delete My Profile!!!" formnovalidate/>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
