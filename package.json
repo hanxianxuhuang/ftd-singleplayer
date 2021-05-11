@@ -1,5 +1,5 @@
 {
-  "name": "ftd singleplayer",
+  "name": "ftd-singleplayer",
   "version": "1.0.0",
   "description": "A singleplayer shooting game",
   "main": "ftd.js",
