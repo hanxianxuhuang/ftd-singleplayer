@@ -1,0 +1,17 @@
+{
+  "name": "ftd singleplayer",
+  "version": "1.0.0",
+  "description": "A singleplayer shooting game",
+  "main": "ftd.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodejs ftd.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

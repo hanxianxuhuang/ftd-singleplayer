@@ -34,5 +34,5 @@ chmod +x setup.bash && ./setup.bash
 ```
 
 ## Usage
-- ```nodejs ftd.js``` if the server has not started
+- ```npm start``` if the server has not started
 - Visit IP_ADDRESS:8000 in browser (use ```ip a``` to determine IP_ADDRESS)
